@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Monitor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-video me-2"></i>Workspace Monitor
+            </a>
+            <div class="d-flex">
+                <button id="startBtn" class="btn btn-success me-2">
+                    <i class="fas fa-play me-1"></i> Start
+                </button>
+                <button id="stopBtn" class="btn btn-danger">
+                    <i class="fas fa-stop me-1"></i> Stop
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Video Feeds Section -->
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-camera me-2"></i>Live Video Feed
+                            </div>
+                            <div class="card-body p-0 d-flex justify-content-center align-items-center">
+                                <img id="videoFeed" src="{{ url_for('video_feed') }}" class="img-fluid" alt="Video Feed">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-fire me-2"></i>Occupancy Heatmap
+                            </div>
+                            <div class="card-body p-0 d-flex justify-content-center align-items-center">
+                                <img id="heatmapFeed" src="{{ url_for('heatmap_feed') }}" class="img-fluid" alt="Heatmap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zone Occupancy Chart -->
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <i class="fas fa-chart-area me-2"></i>Zone Occupancy Heatmap
+                            </div>
+                            <div class="card-body">
+                                <div id="zoneHeatmap" class="chart-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics and Analytics Section -->
+            <div class="col-lg-4">
+                <!-- Current Metrics -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-tachometer-alt me-2"></i>Current Metrics
+                    </div>
+                    <div class="card-body">
+                        <div id="currentMetrics" class="metrics-container">
+                            <div class="text-center py-5">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Waiting for data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Productivity Chart -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-chart-line me-2"></i>Productivity Trends
+                    </div>
+                    <div class="card-body">
+                        <div id="productivityChart" class="chart-container"></div>
+                    </div>
+                </div>
+
+                <!-- Anomalies -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Detected Anomalies
+                    </div>
+                    <div class="card-body">
+                        <div id="anomalies" class="anomalies-container">
+                            <p class="text-muted">No anomalies detected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

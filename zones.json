@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Desk 1",
+        "type": "desk",
+        "coordinates": [[100, 200], [300, 200], [300, 400], [100, 400]]
+    },
+    {
+        "name": "Desk 2",
+        "type": "desk",
+        "coordinates": [[350, 200], [550, 200], [550, 400], [350, 400]]
+    },
+    {
+        "name": "Meeting Room A",
+        "type": "meeting",
+        "capacity": 6,
+        "coordinates": [[400, 100], [700, 100], [700, 300], [400, 300]]
+    },
+    {
+        "name": "Meeting Room B",
+        "type": "meeting",
+        "capacity": 4,
+        "coordinates": [[600, 350], [800, 350], [800, 500], [600, 500]]
+    },
+    {
+        "name": "Break Area",
+        "type": "break",
+        "coordinates": [[100, 500], [350, 500], [350, 700], [100, 700]]
+    },
+    {
+        "name": "Lounge",
+        "type": "break",
+        "coordinates": [[400, 550], [650, 550], [650, 700], [400, 700]]
+    }
+]
